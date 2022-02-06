@@ -4,13 +4,12 @@ import { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 
 const AddMovie = ({addnew}) => {
-    const [newMovie, setnewMovie] = useState();
-
+    const [newMovie, setnewMovie] = useState({title:'',rate:'',description:'',posterUrl:''});
   return <>
     <Form  style={{margin:"150px 10%"}}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label >Movie title </Form.Label>
-    <Form.Control onChange={(e)=>setnewMovie({...newMovie,title:e.target.value})} type="text"  placeholder="Enter Movie title" />
+    <Form.Control value={newMovie.title}  onChange={(e)=>setnewMovie({...newMovie,title:e.target.value})} type="text"  placeholder="Enter Movie title" />
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicPassword">
     
@@ -21,7 +20,7 @@ const AddMovie = ({addnew}) => {
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Description</Form.Label>
-    <Form.Control onChange={(e)=>setnewMovie({...newMovie,description:e.target.value})} type="text" placeholder="description" />
+    <Form.Control value={newMovie.description} onChange={(e)=>setnewMovie({...newMovie,description:e.target.value})} type="text" placeholder="description" />
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Poster</Form.Label>
