@@ -4,9 +4,9 @@ import { Rating } from 'react-simple-star-rating'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-function Headers({filter}) {
-    const [search, setsearch] = useState();
-    const [rating, setrating] = useState();
+function Headers({setsearch,setrate}) {
+    // const [search, setsearch] = useState('');
+    // const [rating, setrating] = useState(0);
   return <div>
       <Navbar style={{backgroundColor:'orange'}} expand="lg" fixed='top'>
   <Container style={{margin:'0 10%'}}  fluid>
@@ -33,7 +33,7 @@ function Headers({filter}) {
         </NavDropdown>
        
       </Nav>
-      <Rating onClick={(rate)=>setrating(rate/20)} emptyColor='white' fillColor='black' />
+      <Rating onClick={(rate)=>setrate(rate/20)} emptyColor='white' fillColor='black' />
       <Form className="d-flex">
         <FormControl onChange={(e)=>setsearch(e.target.value)} //()=>filter(e.target.value)
           type="search"
@@ -41,7 +41,7 @@ function Headers({filter}) {
           className="me-2"
           aria-label="Search"
         />
-        <Button onClick={()=>filter(search,rating)} variant="outline-success">Search</Button>
+        {/* <Button onClick={()=>filter(search,rating)} variant="outline-success">Search</Button> */}
       </Form>
     </Navbar.Collapse>
   </Container>
